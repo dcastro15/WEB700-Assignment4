@@ -18,11 +18,7 @@ const collegeData = require("./modules/collegeData");
 
 const app = express();
 const HTTP_PORT = process.env.PORT || 8080;
-/*const IP_ADDRESS = '172.20.10.12';
 
-const server = app.listen(HTTP_PORT, IP_ADDRESS, () => {
-  console.log(`Server listening on ${IP_ADDRESS}:${HTTP_PORT}`);
-});*/
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static('public'));
@@ -45,7 +41,8 @@ collegeData.initialize()
     app.get("/htmlDemo", (req, res) => {
       res.sendFile(path.join(__dirname, "/views/htmlDemo.html"));
     });
-
+    
+    //theme.css
     app.get("/theme.css", (req, res) => {
       res.sendFile(path.join(__dirname, "/css/theme.css"));
     });
@@ -119,14 +116,11 @@ collegeData.initialize()
   });
   
   
-
-
-    // [ no matching route ]
     app.use((req, res) => {
       res.status(404).send("Page Not Found");
     });
 
-    // Start the server
+
     app.listen(HTTP_PORT, () => {
       console.log("Server listening on port: " + HTTP_PORT);
     });
