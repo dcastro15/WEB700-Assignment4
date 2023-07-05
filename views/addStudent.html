@@ -99,12 +99,23 @@
                                 
                                 <span>College Employment:</span><span class="enrollmentStatus" style="margin-left: 154px;">Enrollment Status:</span><span class="enrollmentStatus" style="margin-left: 154px;">Enrolled in Course:</span>
                                 <div><span><input class="w3-check" type="checkbox" checked="checked" value="True" id="TA"><label>&nbsp;Teaching Assistant</label></span>
-                                <span style="margin-left: 120px;"><input class="w3-radio" type="radio" name="gender" value="fullTime" checked id="status"><label>&nbsp;Full Time</label>
-                                <input class="w3-radio" type="radio" name="gender" value="partTime" checked id="status"><label>&nbsp;Part Time</label></span>
-                                <span style="margin-left: 64px;">          
-                                  <select class="w3-select w3-border" name="course" style="width: 32% !important;" id="course">
-                                  <option value="" disabled selected>Choose your option</option>
-                                </select></span>
+                                <span style="margin-left: 120px;"><input class="w3-radio" type="radio" name="status" value="fullTime" checked id="status"><label>&nbsp;Full Time</label>
+                                <input class="w3-radio" type="radio" name="status" value="partTime" checked id="status"><label>&nbsp;Part Time</label></span>
+                                <span style="margin-left: 64px;">  <select class="w3-select w3-border" name="course" style="width: 32% !important;" id="course">
+                                    <option value="" disabled selected>Choose your option</option>
+                                    <option value="1" name="1">Relational Database Design and Implementation</option>
+                                    <option value="2" name="2">Java Programming</option>
+                                    <option value="3" name="3">Introduction to Cloud Computing</option>
+                                    <option value="4" name="4">Database Administration and Management</option>
+                                    <option value="5" name="5">Web Programming</option>
+                                    <option value="6" name="6">Applied Capstone Project</option>
+                                    <option value="7" name="7">Database Connectivity Using Java</option>
+                                    <option value="8" name="8">Accessing Big Data</option>
+                                    <option value="9" name="9">Datawarehousing</option>
+                                    <option value="10" name="10">Security in Databases and Web Applications</option>
+                                    <option value="11" name="11">Work Term Preparation (Work-Integrated Learning option only)</option>
+
+                                  </select></span>
                                  </div>
                               </div>
                           </div>
@@ -128,34 +139,7 @@
 			  </span>
 			</div>
 		  </footer>
-    
-      <script>
-        const fetchCourses = async () => {
-          try {
-            const response = await fetch('courses.json'); 
-            const courses = await response.json();
-            return courses;
-          } catch (error) {
-            console.error('Error fetching courses:', error);
-          }
-        };
-      
 
-        const populateCourseOptions = async () => {
-          const courseSelect = document.getElementById('course');
-          const courses = await fetchCourses();
-      
-          courses.forEach(course => {
-            const option = document.createElement('option');
-            option.value = course.courseId;
-            option.text = course.courseDescription;
-            courseSelect.appendChild(option);
-          });
-        };
-      
-
-        populateCourseOptions();
-      </script>
 		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
