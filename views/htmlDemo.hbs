@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>WEB700</title>
+		<meta charset="UTF-8" />
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+		<link rel="stylesheet" href="/theme.css">
+		<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+
+	</head>
+
+	<body>
+		<!-- <nav class="navbar navbar-expand-lg navbar-light bg-light">
+			<a class="navbar-brand" href="/">Dennis Bootstrap</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			
+			<div class="collapse navbar-collapse" id="navbarSupportedContent" style="font-family: monospace;">
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+					<li class="nav-item"><a class="nav-link" href="/about">About</a></li>
+					<li class="nav-item active"><a class="nav-link" href="/htmlDemo">HTML-Demo</a></li>
+					<li class="nav-item "><a class="nav-link" href="/students/add">Add Student</a></li>
+				</ul>
+				<ul class="navbar-nav ml-auto">
+					<li class="nav-item"><a class="nav-link" href="/students" target="_blank">Students</a></li>
+					<li class="nav-item"><a class="nav-link" href="/tas" target="_blank">Teaching Assistants</a></li>
+					<li class="nav-item"><a class="nav-link" href="/courses" target="_blank">Courses</a></li>
+				</ul>
+			</div>
+		</nav> -->
+
+		<div class="container">
+			<div class="row">
+				<main class="col-md-12 homeContainer">
+
+					<!-- Start your code here -->
+
+					<h1 style="margin-top:30px;">Please select a content section you want to open.</h1>
+					<button onclick="myFunction('tablesModal')" class="w3-btn w3-block w3-black w3-left-align">Table <i class="fa fa-caret-down" style="position: relative;
+						left: 39px !important;"></i></button>
+					<div id="tablesModal" class="section w3-panel w3-border w3-border-blue" style="font-size:18px;">
+					  <table class="w3-table-all">
+						<caption>Students</caption>
+						<thead>
+						  <tr>
+							<th colspan="3">First Name</th>
+							<th colspan="3">Last Name</th>
+							<th colspan="3">Email</th>
+						  </tr>
+						</thead>
+						<tr>
+							<td colspan="3">Jill</td>
+							<td colspan="3">Smith</td>
+							<td colspan="3">sample1@gmail.com</td>
+						  </tr>
+						  <tr>
+							<td colspan="3">Eve</td>
+							<td colspan="3">Jackson</td>
+							<td colspan="3">sample2@gmail.com</td>
+						  </tr>
+						  <tr>
+							<td colspan="3">Adam</td>
+							<td colspan="3">Johnson</td>
+							<td colspan="3">sample3@gmail.com</td>
+						  </tr>
+					  </table>
+					  <p>This div has the table content.</p>
+					</div>
+
+
+
+						<button onclick="myFunction('listsModal')" class="w3-btn w3-block w3-black w3-left-align">Lists <i class="fa fa-caret-down" style="position: relative;
+							left: 39px !important;"></i></button>
+						<div id="listsModal" class="section w3-panel w3-border w3-border-blue" style="font-size:28px;">
+							<h1>Lists Section</h1>
+							<ul>
+								<li>Dota 2</li>
+								<li>Valorant</li>
+								<li>Ragnarok
+									<ul>
+										<li>Private Server</li>
+										<li>Ragnarok Official</li>
+										<li>Ragnarok Mobile</li>
+									</ul>
+								</li>
+								<li>Dota 2</li>
+								<li>Call of Duty</li>
+							</ul>
+							<p>This div is has the list content.</p>
+						</div>
+						
+						<button onclick="myFunction('imagesModal')" class="w3-btn w3-block w3-black w3-left-align">Images <i class="fa fa-caret-down" style="position: relative;
+							left: 28px !important;"></i></button>
+						<div id="imagesModal" class="section w3-panel w3-border w3-border-blue" style="text-align: center; font-size: 18px;">
+						<h1>Images Section</h1>
+								<img class="imagesSize" src="https://cdn-icons-png.flaticon.com/512/891/891979.png?w=740&t=st=1686431618~exp=1686432218~hmac=eff0533ab92872ea2e90b372a7cc62482e94a5bd465cf65b7f2d99c20c6c68ab" alt="Minion 1">
+								<img class="imagesSize" src="https://cdn-icons-png.flaticon.com/512/86/86522.png?w=740&t=st=1686431619~exp=1686432219~hmac=ddab109cd3e5c76fb232a2a05d9a82a429b087e35c0087cda7475346c92eefbd" alt="Minion 2">
+								<img class="imagesSize" src="https://cdn-icons-png.flaticon.com/512/497/497320.png?w=740&t=st=1686431620~exp=1686432220~hmac=ced93f01711c6ba5e3259b13a77f39b23eff312338fd29991d349a32b7f84e27" alt="Minion 3">
+								<p style="margin: 50px 0 0 0;">This div is has the images content.</p>
+						</div>
+						
+						<button onclick="myFunction('audioModal')" class="w3-btn w3-block w3-black w3-left-align">Audio <i class="fa fa-caret-down" style="position: relative;
+							left: 37px !important;"></i></button>
+						<div id="audioModal" class="section w3-panel w3-border w3-border-blue" style="font-size:20px;">
+							<h1>Audio Section</h1>
+							<br>
+							<p>Minions Y.M.C.A</p>
+								<audio controls>
+									<source src="https://dl.sndup.net/f9qz/minionsSong.mp3" type="audio/mpeg">
+									Your browser does not support the audio element.
+								</audio>
+								<p>This div is has the audio content.</p>
+						</div>
+
+
+						<button onclick="myFunction('videoModal')" class="w3-btn w3-block w3-black w3-left-align">Video <i class="fa fa-caret-down" style="position: relative;
+							left: 36px !important;"></i></button>
+						<div id="videoModal" class="section w3-panel w3-border w3-border-blue" style="text-align: center; font-size:25px;margin-bottom: 80px;">
+							<h1>Video Section</h1>
+							<video controls style="width: 80%;">
+								<source src="https://pat-crawford-sdds.netlify.app/shared/fall-2021/web700/A3/sample-video.mp4" type="video/mp4">
+								Your browser does not support the video element.
+							</video>
+							<p>This div is has the video content</p>
+						</div>
+					
+					<!-- End your code here  -->
+
+
+
+				</main>
+			</div>
+		</div>
+
+		<footer class="footer">
+			<div class="container">
+			  <span class="navbar-text">
+				&copy; 2023 Dens Website. All rights reserved.
+			  </span>
+			</div>
+		  </footer>
+
+		  <script>
+			function myFunction(id) {
+				var x = document.getElementById(id);
+				if (x.className.indexOf("w3-show") == -1) {
+				  x.className += " w3-show";
+				} else { 
+				  x.className = x.className.replace(" w3-show", "");
+				}
+			  }
+		</script>
+		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+	</body>
+</html>
