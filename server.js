@@ -6,7 +6,7 @@
 * 
 *  Name: Dennis Castro Student ID: 122875222 Date: July 19, 2023
 *
-*  Online (Cycliic) Link: https://dull-pink-fly-toga.cyclic.app/
+*  Online (Cycliic) Link: https://dull-pink-fly-toga.cyclic.app
 *
 ********************************************************************************/ 
 
