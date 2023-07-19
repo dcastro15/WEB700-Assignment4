@@ -21,8 +21,8 @@
           {{#each students}}
             <tr>
               <td>{{this.studentNum}}<span><a style="text-align: center; position: relative; left: 90px;" class="btn btn-primary" href="/students/update/{{this.studentNum}}">Update</a> <form action="/students/delete/{{this.studentNum}}" method="POST" onsubmit="return confirm('Are you sure you want to delete this student?')">
-                  <button type="submit" class="btn btn-danger" style="position: relative; left: 205px; bottom: 35px;">Delete</button> <a style="text-align: center; position: relative; left: 213px; bottom: 35px;" class="btn btn-primary" href="/students/view/{{this.studentNum}}">View</a>
-                </form></span></td>
+                  <button type="submit" class="btn btn-danger" style="position: relative; left: 205px; bottom: 35px;">Delete</button></form> <a style="text-align: center; position: relative; left: 213px; bottom: 35px;" class="btn btn-primary" href="/students/view/{{this.studentNum}}">View</a>
+                </span></td>
               <td>{{this.firstName}}</td>
               <td>{{this.lastName}}</td>
             </tr>
