@@ -176,12 +176,7 @@ tfoot {
   }
 
   /*Mouse cursor*/
-/* Start https://www.cursors-4u.com */
-* {
-    cursor: url(https://cur.cursors-4u.net/nature/nat-11/nat1028.ani), url(https://cur.cursors-4u.net/nature/nat-11/nat1028.gif), auto !important;
-}
-
-/* End https://www.cursors-4u.com */
+/* Start https://www.cursors-4u.com */ * {cursor: url(https://ani.cursors-4u.net/games/gam-16/gam1571.ani), url(https://ani.cursors-4u.net/games/gam-16/gam1571.png), auto !important;} /* End https://www.cursors-4u.com */
 
 
 .btn-primary {
