@@ -143,11 +143,14 @@ module.exports.getStudents = () => {
           studentNum: student.studentNum,
           firstName: student.firstName,
           lastName: student.lastName,
+        
         }
+        
+        
         ));
 
-        studentRealTimeUpdate();
 
+        studentRealTimeUpdate();
 
         resolve(studentNames);
       } catch (error) {
