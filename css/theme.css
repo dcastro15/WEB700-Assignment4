@@ -49,7 +49,7 @@ h3.header2{
 
 .about-me-container {
     background: rgb(0,212,255);
-    background-image: linear-gradient( 95.2deg, rgb(131 235 212) 26.8%, rgb(98 200 247) 64% );
+    background-image: linear-gradient( 95.2deg, rgb(206, 206, 206) 26.8%, rgb(194, 194, 194) 64% );
     /*background: linear-gradient(90deg, rgba(0,212,255,1) 0%, rgba(71,216,224,1) 48%, rgba(0,212,255,1) 100%);*/
     color: #000000;
     padding: 1.01em 35px !important;
@@ -186,16 +186,16 @@ tfoot {
 
 .btn-primary {
     color: #000;
-    background-image: linear-gradient( 95.2deg, rgb(131 235 212) 26.8%, rgb(162 223 251) 64% );
+    background-image: linear-gradient( 95.2deg, rgb(165, 165, 165) 26.8%, rgb(170, 170, 170) 64% );
 }
 
 .w3-black {
     color: #000000 !important;
-    background-image: linear-gradient( 95.2deg, rgb(81 188 195) 26.8%, rgba(192,229,246,1) 64% ) !important;
+    background-image: linear-gradient( 95.2deg, rgb(165, 165, 165) 26.8%, rgb(170, 170, 170) 64% ) !important;
 }
 
 .w3-button:hover {
     color: #000!important;
-    background-image: linear-gradient( 95.2deg, rgba(173,252,234,1) 26.8%, rgba(192,229,246,1) 64% );
+    background-image: linear-gradient( 95.2deg, rgb(165, 165, 165) 26.8%, rgb(170, 170, 170) 64% );
     background-color: #ccc!important;
 }
