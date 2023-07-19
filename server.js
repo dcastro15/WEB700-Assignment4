@@ -259,8 +259,8 @@ collegeData.initialize()
         });
     });
 
-    app.post('/students/delete/:studentNum', (req, res) => {
-      const studentNum = req.params.studentNum;
+    app.post('/students/delete', (req, res) => {
+      const studentNum = req.body.studentNum;
     
       collegeData.deleteStudent(studentNum)
         .then(() => {
