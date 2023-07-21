@@ -100,28 +100,18 @@ collegeData.initialize()
     //students.json
 
     app.get("/students", (req, res) => {
-        const courseNumber = req.query.course;
-        collegeData.getStudents()
-          .then((data) => {
-            if (data.length > 0) {
-              res.render('students', { students: data });
-            } else {
-              res.render('students', { message: 'no results' });
-            }
-          })
-          .catch((error) => {
+      collegeData.getStudents()
+        .then((data) => {
+          if (data.length > 0) {
+            res.render('students', { students: data });
+          } else {
             res.render('students', { message: 'no results' });
-          });
-
-    app.get('/students', (req, res) => {
-          collegeData.getAllStudents()
-            .then((data) => {
-              res.render('students', { students: data });
-              })
-            .catch((err) => {
-              res.render('students', { message: "no results" });
-              });
-          });
+          }
+        })
+        .catch((error) => {
+          res.render('students', { message: 'no results' });
+        });
+    });
       
         /* if (courseNumber) {
           collegeData.getStudentsByCourse(courseNumber)
@@ -305,27 +295,27 @@ collegeData.initialize()
     app.listen(HTTP_PORT, () => {
       console.log("Server listening on port: " + HTTP_PORT);
     });
-  })
-  .catch((err) => {
-    console.log(err);
-  });
+    })
+      .catch((err) => {
+      console.log(err);
+    });
 
 
-  app.get('/students/add', (req, res) => {
-    res.render('addStudent');
-  });
+    app.get('/students/add', (req, res) => {
+      res.render('addStudent');
+    });
 
-  app.post('/students/add', (req, res) => {
-    collegeData.addStudent(req.body)
-      .then(() => {
-        const response = `
-        <script>
-          setTimeout(function() {
-            alert("Congratulations! Student Added successfully.");
-            window.location.href = window.location.href;
-          }, 100);
-        </script>`;
-        res.send(response);
+    app.post('/students/add', (req, res) => {
+      collegeData.addStudent(req.body)
+        .then(() => {
+          const response = `
+          <script>
+            setTimeout(function() {
+              alert("Congratulations! Student Added successfully.");
+              window.location.href = window.location.href;
+            }, 100);
+          </script>`;
+          res.send(response);
       })
       .catch((error) => {
         res.send('Error: ' + error);
