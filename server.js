@@ -285,6 +285,22 @@ collegeData.initialize()
     });
 
     
+
+  
+    app.use((req, res) => {
+      res.status(404).send("Page Not Found");
+    });
+
+
+    app.listen(HTTP_PORT, () => {
+      console.log("Server listening on port: " + HTTP_PORT);
+    });
+    })
+      .catch((err) => {
+      console.log(err);
+    });
+
+
     app.get('/students/add', (req, res) => {
       res.render('addStudent');
     });
@@ -304,17 +320,4 @@ collegeData.initialize()
       .catch((error) => {
         res.send('Error: ' + error);
       });
-  });
-
-  app.use((req, res) => {
-    res.status(404).send("Page Not Found");
-  });
-
-
-  app.listen(HTTP_PORT, () => {
-    console.log("Server listening on port: " + HTTP_PORT);
-  });
-  })
-    .catch((err) => {
-    console.log(err);
   });
