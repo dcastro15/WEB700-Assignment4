@@ -134,7 +134,7 @@ collegeData.initialize()
               res.send({ message: "Error" });
             });
         } */
-      });
+      
       
 
   app.get("/tas", (req, res) => {
