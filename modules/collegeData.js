@@ -132,31 +132,18 @@ function studentRealTimeUpdate() {
 //getting '/students'
 module.exports.getStudents = () => {
   return new Promise((resolve, reject) => {
-    fs.readFile('./data/students.json', 'utf8', (err, data) => {
-      if (err) {
-        reject(err);
-        return;
-      }
-      try {
-        const students = JSON.parse(data);
-        const studentNames = students.map((student) => ({
-          studentNum: student.studentNum,
-          firstName: student.firstName,
-          lastName: student.lastName,
-        
-        }
-        
-        
-        ));
+    if (!dataCollection || dataCollection.students.length === 0) {
+      reject("No students data available");
+      return;
+    }
 
+    const studentNames = dataCollection.students.map((student) => ({
+      studentNum: student.studentNum,
+      firstName: student.firstName,
+      lastName: student.lastName,
+    }));
 
-        studentRealTimeUpdate();
-
-        resolve(studentNames);
-      } catch (error) {
-        reject(error);
-      }
-    });
+    resolve(studentNames);
   });
 };
 
