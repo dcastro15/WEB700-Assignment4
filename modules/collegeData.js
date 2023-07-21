@@ -221,3 +221,26 @@ module.exports.deleteStudent = function (studentNum) {
     }
   });
 };
+
+  module.exports.getAllStudentsWithPromise = function () {
+    return new Promise((resolve, reject) => {
+      if (dataCollection.students.length == 0) {
+        reject("query returned 0 results");
+        return;
+      }
+      resolve(dataCollection.students);
+    });
+  };
+  
+  function saveStudentsToFile() {
+    fs.writeFile("./data/students.json", JSON.stringify(dataCollection.students, null, 2), (err) => {
+      if (err) {
+        console.error("Error saving students data to file:", err);
+      } else {
+        console.log("Students data saved to file successfully.");
+      }
+    });
+  }
+
+  module.exports.saveStudentsToFile = saveStudentsToFile; 
+

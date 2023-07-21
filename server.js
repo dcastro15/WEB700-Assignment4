@@ -112,6 +112,16 @@ collegeData.initialize()
           .catch((error) => {
             res.render('students', { message: 'no results' });
           });
+
+    app.get('/students', (req, res) => {
+          collegeData.getAllStudents()
+            .then((data) => {
+              res.render('students', { students: data });
+              })
+            .catch((err) => {
+              res.render('students', { message: "no results" });
+              });
+          });
       
         /* if (courseNumber) {
           collegeData.getStudentsByCourse(courseNumber)
