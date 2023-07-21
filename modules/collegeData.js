@@ -207,7 +207,7 @@ module.exports.updateStudent = function (studentData) {
 
 // Delete student details
 
-module.exports.deleteStudent = function (studentNum) {
+/* module.exports.deleteStudent = function (studentNum) {
   return new Promise((resolve, reject) => {
     const studentIndex = dataCollection.students.findIndex((student) => student.studentNum === parseInt(studentNum, 10));
     if (studentIndex !== -1) {
@@ -220,6 +220,6 @@ module.exports.deleteStudent = function (studentNum) {
       reject("No student found with the given studentNum");
     }
   });
-};
+}; */
 
 
