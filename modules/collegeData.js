@@ -129,7 +129,7 @@ function studentRealTimeUpdate() {
 
 
 
-//getting '/students'
+//get /students
 module.exports.getStudents = () => {
   return new Promise((resolve, reject) => {
     if (!dataCollection || dataCollection.students.length === 0) {
@@ -147,7 +147,7 @@ module.exports.getStudents = () => {
   });
 };
 
-// getting '/courses/:id'
+// /courses/:id
 module.exports.getCourseById = function (courseId) {
   return new Promise((resolve, reject) => {
     const foundCourse = dataCollection.courses.find((course) => course.courseId === parseInt(courseId));
