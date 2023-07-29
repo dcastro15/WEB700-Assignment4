@@ -1,128 +1,151 @@
-const fs = require("fs");
+const { Sequelize, DataTypes } = require('sequelize');
 
-class Data {
-  constructor(students, courses) {
-    this.students = students;
-    this.courses = courses;
-  }
-}
+// Initialize Sequelize connection
+const sequelize = new Sequelize('srepurxj', 'srepurxj', 'lbbr7neBSA8a4fWmfs907_GqGzmEdBjk', {
+  host: 'stampy.db.elephantsql.com',
+  dialect: 'postgres',
+  port: 5432,
+  dialectOptions: {
+    ssl: { rejectUnauthorized: false },
+  },
+  query: { raw: true },
+});
 
-let dataCollection = null;
+// Define Student data model
+const Student = sequelize.define('Student', {
+  studentNum: {
+    type: DataTypes.INTEGER,
+    primaryKey: true,
+    autoIncrement: true,
+  },
+  firstName: {
+    type: DataTypes.STRING,
+  },
+  lastName: {
+    type: DataTypes.STRING,
+  },
+  email: {
+    type: DataTypes.STRING,
+  },
+  addressStreet: {
+    type: DataTypes.STRING,
+  },
+  addressCity: {
+    type: DataTypes.STRING,
+  },
+  addressProvince: {
+    type: DataTypes.STRING,
+  },
+  TA: {
+    type: DataTypes.BOOLEAN,
+    defaultValue: false,
+  },
+  status: {
+    type: DataTypes.STRING,
+  },
+});
 
+
+const Course = sequelize.define('Course', {
+  courseId: {
+    type: DataTypes.INTEGER,
+    primaryKey: true,
+    autoIncrement: true,
+  },
+  courseCode: {
+    type: DataTypes.STRING,
+  },
+  courseDescription: {
+    type: DataTypes.STRING,
+  },
+});
+
+
+Course.hasMany(Student, { foreignKey: 'course' });
+
+// Synchronize the models with the database
 module.exports.initialize = function () {
-  return new Promise((resolve, reject) => {
-    fs.readFile("./data/courses.json", "utf8", (err, courseData) => {
-      if (err) {
-        reject("unable to load courses");
-        return;
-      }
-
-      fs.readFile("./data/students.json", "utf8", (err, studentData) => {
-        if (err) {
-          reject("unable to load students");
-          return;
-        }
-
-        dataCollection = new Data(
-          JSON.parse(studentData),
-          JSON.parse(courseData)
-        );
-        resolve();
-      });
-    });
+  return sequelize.sync().then(() => {
+    console.log('Database synced successfully.');
+  }).catch((err) => {
+    console.error('Error syncing the database:', err);
+    throw err;
   });
 };
+
+
 
 module.exports.getAllStudents = function () {
-  return new Promise((resolve, reject) => {
-    if (dataCollection.students.length === 0) {
-      reject("query returned 0 results");
-      return;
-    }
-
-    resolve(dataCollection.students);
-  });
-};
-
-module.exports.getTAs = function () {
-  return new Promise((resolve, reject) => {
-    const filteredStudents = dataCollection.students.filter(
-      (student) => student.TA === true
-    );
-
-    if (filteredStudents.length === 0) {
-      reject("query returned 0 results");
-      return;
-    }
-
-    resolve(filteredStudents);
-  });
+  return Student.findAll();
 };
 
 module.exports.getCourses = function () {
-  return new Promise((resolve, reject) => {
-    if (dataCollection.courses.length === 0) {
-      reject("query returned 0 results");
-      return;
-    }
-
-    resolve(dataCollection.courses);
-  });
+  return Course.findAll();
 };
 
 module.exports.getStudentsByCourse = function (courseId) {
-  return new Promise((resolve, reject) => {
-    const filteredStudents = dataCollection.students.filter(
-      (student) => student.course === parseInt(courseId)
-    );
-
-    if (filteredStudents.length === 0) {
-      reject("No results returned");
-      return;
-    }
-
-    resolve(filteredStudents);
+  return Student.findAll({
+    where: {
+      course: courseId,
+    },
   });
 };
 
-module.exports.getStudentByNum = function (studentId) {
-  return new Promise((resolve, reject) => {
-    const foundStudent = dataCollection.students.find((student) => student.studentNum === parseInt(studentId));
-
-    if (foundStudent) {
-      resolve(foundStudent);
-    } else {
-      reject("No student found");
-    }
+module.exports.getStudentByNum = function (studentNum) {
+  return Student.findOne({
+    where: {
+      studentNum: studentNum,
+    },
   });
 };
 
 module.exports.addStudent = function (studentData) {
-  return new Promise((resolve, reject) => {
-    if (!studentData.TA) {
-      studentData.TA = false;
-    } else {
-      studentData.TA = true;
-    }
+  return Student.create(studentData);
+};
 
-    studentData.studentNum = dataCollection.students.length + 1;
+module.exports.updateStudent = function (studentData) {
+  console.log('Updating student with data:', studentData);
 
-    dataCollection.students.push(studentData);
-
-    studentRealTimeUpdate()
-
-    resolve();
+  return Student.update(studentData, {
+    where: {
+      studentNum: studentData.studentNum,
+    },
   });
 };
 
-function studentRealTimeUpdate() {
-  const studentsData = JSON.stringify(dataCollection.students, null, 2);
-
-  fs.writeFile("./data/students.json", studentsData, (err) => {
-    if (err) {
-      console.error("Error", err);
-    } else {
-      console.log("Students data successfully updated");
-    }
+module.exports.deleteStudentByNum = function (studentNum) {
+  return Student.destroy({
+    where: {
+      studentNum: studentNum,
+    },
   });
-}
+};
+
+module.exports.getCourseById = function (courseId) {
+  return Course.findOne({
+    where: {
+      courseId: courseId,
+    },
+  });
+};
+
+module.exports.addCourse = function (courseData) {
+  return Course.create(courseData);
+};
+
+module.exports.updateCourse = function (courseData) {
+  return Course.update(courseData, {
+    where: {
+      courseId: courseData.courseId,
+    },
+    returning: true,
+  });
+};
+
+module.exports.deleteCourseById = function (courseId) {
+  return Course.destroy({
+    where: {
+      courseId: courseId,
+    },
+  });
+};

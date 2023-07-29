@@ -1,0 +1,53 @@
+<script>
+          const taCheckbox = document.getElementById('TA');
+        
+          taCheckbox.addEventListener('change', function () {
+    if (this.checked) {
+      this.previousElementSibling.value = 'True';
+    } else {
+      this.previousElementSibling.value = 'False';
+    }
+  });
+        document.addEventListener('DOMContentLoaded', function() {
+          const courseSelect = document.getElementById('course');
+          courseSelect.addEventListener('change', function() {
+      if (this.value === '') {
+        this.setAttribute('name', '');
+      } else {
+        this.setAttribute('name', 'courseId');
+      }
+    });
+  });
+
+        </script>
+<div class="row">
+  <div class="col-md-12">
+    <br>
+    <h2>Congratulations Student Added!</h2>
+    <form method="post" action="/students/update">
+            <input type="hidden" name="studentNum" value="{{student.studentNum}}" />
+
+            <fieldset>
+                <legend>"Please select a course"</legend>
+                <div class="row">
+                    
+                <div class="col-md-6">
+                <div class="form-group">
+                    <label>Course:</label>
+        <select class="form-control" id="courseId" name="course">
+          <option value="">None</option>
+          {{#each courses}}
+            <option value="{{this.courseId}}" {{#equal this.courseId ../student.course}}selected{{/equal}}>{{this.courseCode}} - {{this.courseDescription}}</option>
+          {{/each}}
+        </select>
+                </div>
+                </div>
+                </div>
+            </fieldset>
+
+
+            <input type="submit" class="btn btn-primary float-left" value="Add Course" /> &nbsp;&nbsp;<a class="btn btn-primary" href="/students/">Back</a> 
+<br /><br /><br />
+        </form>
+  </div>
+</div>

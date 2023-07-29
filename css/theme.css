@@ -15,8 +15,8 @@ h3.header2{
 }
 
 .bg-light {
-    background: rgb(0,212,255);
-    background-image: linear-gradient( 95.2deg, rgba(173,252,234,1) 26.8%, rgba(192,229,246,1) 64% );
+    background: rgb(195 207 209);
+    background-image: linear-gradient( 95.2deg, rgb(200 200 200) 26.8%, rgb(203 206 207) 64% );
 }
 
 .navbar-brand {
@@ -49,7 +49,7 @@ h3.header2{
 
 .about-me-container {
     background: rgb(0,212,255);
-    background-image: linear-gradient( 95.2deg, rgb(131 235 212) 26.8%, rgb(98 200 247) 64% );
+    background-image: linear-gradient( 95.2deg, rgb(206, 206, 206) 26.8%, rgb(194, 194, 194) 64% );
     /*background: linear-gradient(90deg, rgba(0,212,255,1) 0%, rgba(71,216,224,1) 48%, rgba(0,212,255,1) 100%);*/
     color: #000000;
     padding: 1.01em 35px !important;
@@ -176,26 +176,21 @@ tfoot {
   }
 
   /*Mouse cursor*/
-/* Start https://www.cursors-4u.com */
-* {
-    cursor: url(https://cur.cursors-4u.net/nature/nat-11/nat1028.ani), url(https://cur.cursors-4u.net/nature/nat-11/nat1028.gif), auto !important;
-}
-
-/* End https://www.cursors-4u.com */
+/* Start https://www.cursors-4u.com */ * {cursor: url(https://ani.cursors-4u.net/games/gam-16/gam1571.ani), url(https://ani.cursors-4u.net/games/gam-16/gam1571.png), auto !important;} /* End https://www.cursors-4u.com */
 
 
 .btn-primary {
     color: #000;
-    background-image: linear-gradient( 95.2deg, rgb(131 235 212) 26.8%, rgb(162 223 251) 64% );
+    background-image: linear-gradient( 95.2deg, rgb(199, 199, 199) 26.8%, rgb(202, 201, 201) 64% );
 }
 
 .w3-black {
     color: #000000 !important;
-    background-image: linear-gradient( 95.2deg, rgb(81 188 195) 26.8%, rgba(192,229,246,1) 64% ) !important;
+    background-image: linear-gradient( 95.2deg, rgb(165, 165, 165) 26.8%, rgb(170, 170, 170) 64% ) !important;
 }
 
 .w3-button:hover {
     color: #000!important;
-    background-image: linear-gradient( 95.2deg, rgba(173,252,234,1) 26.8%, rgba(192,229,246,1) 64% );
+    background-image: linear-gradient( 95.2deg, rgb(165, 165, 165) 26.8%, rgb(170, 170, 170) 64% );
     background-color: #ccc!important;
 }
