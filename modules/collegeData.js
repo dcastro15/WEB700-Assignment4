@@ -119,6 +119,7 @@ module.exports.deleteStudentByNum = function (studentNum) {
       studentNum: studentNum,
     },
   });
+<<<<<<< HEAD
 };
 
 module.exports.getCourseById = function (courseId) {
@@ -149,3 +150,90 @@ module.exports.deleteCourseById = function (courseId) {
     },
   });
 };
+=======
+}
+
+
+
+//get /students
+module.exports.getStudents = () => {
+  return new Promise((resolve, reject) => {
+    if (!dataCollection || dataCollection.students.length === 0) {
+      reject("No students data available");
+      return;
+    }
+
+    const studentNames = dataCollection.students.map((student) => ({
+      studentNum: student.studentNum,
+      firstName: student.firstName,
+      lastName: student.lastName,
+    }));
+
+    resolve(studentNames);
+  });
+};
+
+// /courses/:id
+module.exports.getCourseById = function (courseId) {
+  return new Promise((resolve, reject) => {
+    const foundCourse = dataCollection.courses.find((course) => course.courseId === parseInt(courseId));
+
+    if (foundCourse) {
+      resolve(foundCourse);
+    } else {
+      reject("No course found with the given courseId");
+    }
+  });
+};
+
+
+// Update student details
+
+
+
+module.exports.updateStudent = function (studentData) {
+  return new Promise((resolve, reject) => {
+    const studentIndex = dataCollection.students.findIndex(
+      (student) => student.studentNum === parseInt(studentData.studentNum, 10)
+    );
+    if (studentIndex !== -1) {
+      dataCollection.students[studentIndex].studentNum = parseInt(studentData.studentNum, 10);
+      dataCollection.students[studentIndex].firstName = studentData.firstName;
+      dataCollection.students[studentIndex].lastName = studentData.lastName;
+      dataCollection.students[studentIndex].email = studentData.email;
+      dataCollection.students[studentIndex].addressStreet = studentData.addressStreet;
+      dataCollection.students[studentIndex].addressCity = studentData.addressCity;
+      dataCollection.students[studentIndex].addressProvince = studentData.addressProvince;
+      dataCollection.students[studentIndex].TA = studentData.TA === 'true';
+      dataCollection.students[studentIndex].status = studentData.status;
+      dataCollection.students[studentIndex].course = parseInt(studentData.course, 10);
+
+      studentRealTimeUpdate();
+
+      resolve(studentIndex);
+    } else {
+      reject("No student found with the given studentNum");
+    }
+  });
+};
+
+
+// Delete student details
+
+/* module.exports.deleteStudent = function (studentNum) {
+  return new Promise((resolve, reject) => {
+    const studentIndex = dataCollection.students.findIndex((student) => student.studentNum === parseInt(studentNum, 10));
+    if (studentIndex !== -1) {
+      dataCollection.students.splice(studentIndex, 1);
+
+      studentRealTimeUpdate();
+
+      resolve();
+    } else {
+      reject("No student found with the given studentNum");
+    }
+  });
+}; */
+
+
+>>>>>>> a63038468427893cf9a26f04af9ea60f33a206fd

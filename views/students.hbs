@@ -4,12 +4,15 @@
     <h2>Students</h2>
     <hr />
 
+<<<<<<< HEAD
     {{#if updatedStudentNum}}
       <div class="alert alert-success" role="alert">
         Student with number {{updatedStudentNum}} has been successfully updated.
       </div>
     {{/if}}
 
+=======
+>>>>>>> a63038468427893cf9a26f04af9ea60f33a206fd
     {{#unless students}}
       <div class="col-md-12 text-center">
         <strong>{{message}}</strong>
@@ -23,12 +26,20 @@
             <th>Last Name</th>
           </tr>
         </thead>
+<<<<<<< HEAD
         <tbody id="studentsTable">
           {{#each students}}
             <tr>
               <td>{{this.studentNum}}<span><a style="text-align: center; position: relative; left: 90px;" class="btn btn-primary" href="/students/update/{{this.studentNum}}">Update</a> <form action="/students/delete/{{this.studentNum}}" method="POST" onsubmit="return confirm('Are you sure you want to delete this student?')">
                   <button type="submit" class="btn btn-danger" style="position: relative; left: 205px; bottom: 35px;">Delete</button> <a style="text-align: center; position: relative; left: 213px; bottom: 35px;" class="btn btn-primary" href="/students/view/{{this.studentNum}}">View</a>
                 </form></span></td>
+=======
+        <tbody>
+          {{#each students}}
+            <tr>
+              <td>{{this.studentNum}}<span><a style="text-align: center; position: relative; left: 90px;" class="btn btn-primary" href="/students/update/{{this.studentNum}}">Update</a><a style="text-align: center; position: relative; left: 135px; bottom: 1px;" class="btn btn-primary" href="/students/view/{{this.studentNum}}">View</a>
+                </span></td>
+>>>>>>> a63038468427893cf9a26f04af9ea60f33a206fd
               <td>{{this.firstName}}</td>
               <td>{{this.lastName}}</td>
             </tr>
@@ -36,8 +47,11 @@
         </tbody>
       </table>
     {{/unless}}
+<<<<<<< HEAD
 
     <!-- Add the "Add Student" link using the navLink helper -->
     <a class="btn btn-primary" href="/students/add">Add Student</a>
+=======
+>>>>>>> a63038468427893cf9a26f04af9ea60f33a206fd
   </div>
 </div>

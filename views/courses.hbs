@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
   function updateCourses() {
@@ -29,6 +30,8 @@
   updateCourses();
 </script>
 
+=======
+>>>>>>> a63038468427893cf9a26f04af9ea60f33a206fd
 <div class="row">
   <div class="col-md-12">
     <br>
@@ -41,28 +44,38 @@
           <th>Course ID</th>
           <th>Course Code</th>
           <th>Course Description</th>
+<<<<<<< HEAD
           <th>Update Course</th>
           <th>Delete Course</th>
         </tr>
       </thead>
       <tbody id="coursesTable">
+=======
+        </tr>
+      </thead>
+      <tbody>
+>>>>>>> a63038468427893cf9a26f04af9ea60f33a206fd
         {{#each courses}}
           <tr>
             <td>{{this.courseId}}</td>
             <td>{{this.courseCode}}</td>
             <td>{{this.courseDescription}}</td>
+<<<<<<< HEAD
             <td><a href="/courses/update/{{this.courseId}}" class="btn btn-primary">Update</a> </td>
             <td>
           <form method="POST" action="/courses/delete/{{this.courseId}}">
             <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this course?')">Delete</button>
           </form>
         </td>
+=======
+>>>>>>> a63038468427893cf9a26f04af9ea60f33a206fd
           </tr>
         {{/each}}
       </tbody>
     </table>
 
   </div>
+<<<<<<< HEAD
 
 
   <div class="col-md-12">
@@ -85,3 +98,6 @@
 </div>
 
 
+=======
+</div>
+>>>>>>> a63038468427893cf9a26f04af9ea60f33a206fd

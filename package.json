@@ -15,10 +15,14 @@
     "express": "^4.18.2",
     "express-handlebars": "^7.0.7",
     "express-session": "^1.17.3",
+<<<<<<< HEAD
     "handlebars-helpers": "^0.10.0",
     "pg": "^8.11.1",
     "pg-hstore": "^2.3.4",
     "sequelize": "^6.32.1"
+=======
+    "handlebars-helpers": "^0.10.0"
+>>>>>>> a63038468427893cf9a26f04af9ea60f33a206fd
   },
   "devDependencies": {
     "nodemon": "^2.0.22"
